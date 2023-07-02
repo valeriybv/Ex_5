@@ -1,7 +1,9 @@
 import purchaselog
+import visits
 
 
-file_path = "data/purchase_log.txt"
+purchases_path = "data/purchase_log.txt"
+visits_path = "data/visit_log.csv"
 
-
-result = purchaselog.create_dict_from_log(file_path)
+result = purchaselog.create_dict_from_log(purchases_path)
+visits.funnel(purchases_path, visits_path)
