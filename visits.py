@@ -1,10 +1,6 @@
 import purchaselog
 
 
-def add_funnel():
-    pass
-
-
 def convert_log_item(log_item):
     log_item = log_item.split(',')
     log_item[1] = log_item[1].strip()
@@ -32,8 +28,6 @@ def add_funnel(file, log_item, purchase):
             file.write('\n')
         else:
             print(purchase.__class__)
-
-
 
 
 def funnel(purchases_path, logs_path):
