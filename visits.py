@@ -1,6 +1,7 @@
 import purchaselog
 
 
+# Преобразует строку в массив
 def convert_log_item(log_item):
     log_item = log_item.split(',')
     log_item[1] = log_item[1].strip()
@@ -8,6 +9,7 @@ def convert_log_item(log_item):
     pass
 
 
+# Ищет закупку в строчке с логом
 def find_purchase_in_log(purchases, log_item):
     log_item = convert_log_item(log_item)
     if log_item [0] in purchases:
@@ -17,6 +19,7 @@ def find_purchase_in_log(purchases, log_item):
     pass
 
 
+# Записывает строчку в файл
 def add_funnel(file, log_item, purchase):
     try:
         file.write(log_item.strip() + ',' + purchase + '\n')
@@ -30,6 +33,7 @@ def add_funnel(file, log_item, purchase):
             print(purchase.__class__)
 
 
+# Создеёт файл funnel.csv. Построчно считывает исходный файл и, если совпадение с закупкой есть, то записывает строчку в файл
 def funnel(purchases_path, logs_path):
     visits = open(logs_path)
     purchases = purchaselog.create_dict_from_log(purchases_path)
